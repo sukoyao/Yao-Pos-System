@@ -22,3 +22,11 @@
 [data-yao-pos="delete-drink"]:hover {
   color: red;
 }
+
+.menu .card-body {
+  cursor: pointer;
+}
+
+.menu .card:hover {
+  box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.8);
+}
