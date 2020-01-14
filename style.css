@@ -1,12 +1,22 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://imgur.com/tbiQ1JQ.png') no-repeat center center;
+  background-size: cover;
+}
+
 .container {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 3px;
 }
 
-.col-md-4,
-.col-md-8 {
-  outline: 1px solid steelblue;
-  min-height: 600px;
+.row {
+  max-height: 600px;
+}
+.col-md-4 {
+  overflow-y: auto;
 }
 
 [data-yao-pos="delete-drink"] {
