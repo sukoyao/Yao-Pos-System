@@ -1,34 +1,31 @@
+const yaoPos = new YaoPos()
+
+const addDrinkButton = document.querySelector('[data-yao-pos="add-drink"]')
+addDrinkButton.addEventListener('click', () => {
+  // 取得飲料項目,冰塊,甜度
+  const drinkName = yaoPos.getCheckedValue('drink')
+  const ice = yaoPos.getCheckedValue('ice')
+  const sugar = yaoPos.getCheckedValue('sugar')
+  console.log(`${drinkName}, ${ice}, ${sugar}`)
+})
+
+// Constructor function for Yao Pos System
+function YaoPos () {}
+YaoPos.prototype.getCheckedValue = inputName => {
+  let selectedOption = ''
+  document.querySelectorAll(`[name=${inputName}]`).forEach(item => {
+    if (item.checked) {
+      selectedOption = item.value
+    }
+  })
+  return selectedOption
+}
+
 function Drink (name, ice, sugar) {
   this.name = name
   this.ice = ice
   this.sugar = sugar
 }
-
-const addDrinkButton = document.querySelector('[data-yao-pos="add-drink"]')
-addDrinkButton.addEventListener('click', () => {
-  console.log('click')
-  
-  let allDrinkOptions = document.querySelectorAll('input[name="drink"]')
-  allDrinkOptions.forEach(option => {
-    if (option.checked) {
-      console.log(`${option.value}: ${option.checked}`)
-    }
-  })
-
-  let allIceOptions = document.querySelectorAll('input[name="ice"]')
-  allIceOptions.forEach(option => {
-    if (option.checked) {
-      console.log(`${option.value}: ${option.checked}`)
-    }
-  })
-
-  let allSugarOption = document.querySelectorAll('input[name="sugar"]')
-  allSugarOption.forEach(option => {
-    if (option.checked) {
-      console.log(`${option.value}: ${option.checked}`)
-    }
-  })
-})
 
 Drink.prototype.price = function () {
   switch (this.name) {
