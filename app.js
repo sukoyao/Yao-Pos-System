@@ -18,6 +18,9 @@ addDrinkButton.addEventListener('click', () => {
   const drink = new Drink(drinkName, ice, sugar)
   console.log(drink)
   console.log(drink.price())
+
+  // add order UI
+  yaoPos.addDrink(drink)
 })
 
 // Constructor function for Yao Pos System
@@ -30,6 +33,31 @@ YaoPos.prototype.getCheckedValue = inputName => {
     }
   })
   return selectedOption
+}
+
+const orderLists = document.querySelector('[data-order-lists]')
+YaoPos.prototype.addDrink = drink => {
+  let orderListCard = `
+    <div class="card mb-3">
+      <div class="card-body pt-3 pr-3">
+        
+        <div class="text-right"> 
+          <span data-yao-pos="delete-drink">x</span>
+        </div>
+
+        <h6 class="card-title mb-1">${drink.name}</h6>
+        <div class="card-text">${drink.ice}</div>
+        <div class="card-text">${drink.sugar}</div>
+
+        <div class="card-footer text-right py-2">
+          <div class="card-text text-muted">
+            $ <span data-drink-price>${drink.price()}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+  orderLists.insertAdjacentHTML('afterbegin', orderListCard)
 }
 
 function Drink (name, ice, sugar) {
