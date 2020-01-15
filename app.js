@@ -30,7 +30,7 @@ orderLists.addEventListener('click', event => {
   if (!isDeleteButton) {
     return  
   }
-  console.log(event.target.parentElement.parentElement.parentElement)
+  yaoPos.deleteDrink(event.target.parentElement.parentElement.parentElement)
 })
 
 // Constructor function for Yao Pos System
@@ -68,6 +68,10 @@ YaoPos.prototype.addDrink = drink => {
     </div>
   `
   orderLists.insertAdjacentHTML('afterbegin', orderListCard)
+}
+
+YaoPos.prototype.deleteDrink = targrt => {
+  targrt.remove()
 }
 
 function Drink (name, ice, sugar) {
