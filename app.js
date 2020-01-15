@@ -26,7 +26,11 @@ addDrinkButton.addEventListener('click', () => {
 
 const orderLists = document.querySelector('[data-order-lists]')
 orderLists.addEventListener('click', event => {
-  console.log(event.target)
+  let isDeleteButton = event.target.matches('[data-yao-pos="delete-drink"]')
+  if (!isDeleteButton) {
+    return  
+  }
+  console.log('do something...')
 })
 
 // Constructor function for Yao Pos System
