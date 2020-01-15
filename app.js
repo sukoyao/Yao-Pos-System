@@ -21,6 +21,12 @@ addDrinkButton.addEventListener('click', () => {
 
   // add order UI
   yaoPos.addDrink(drink)
+  
+})
+
+const orderLists = document.querySelector('[data-order-lists]')
+orderLists.addEventListener('click', event => {
+  console.log(event.target)
 })
 
 // Constructor function for Yao Pos System
@@ -35,7 +41,7 @@ YaoPos.prototype.getCheckedValue = inputName => {
   return selectedOption
 }
 
-const orderLists = document.querySelector('[data-order-lists]')
+
 YaoPos.prototype.addDrink = drink => {
   let orderListCard = `
     <div class="card mb-3">
@@ -73,8 +79,9 @@ Drink.prototype.price = function () {
     case '四季春':
       return 30
     case '冬瓜檸檬':
-    case '紅茶拿鐵':
     case '烏龍奶茶':
+      return 45
+    case '紅茶拿鐵':
       return 50
     case '珍珠奶茶':
     case '多多綠茶':  
