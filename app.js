@@ -4,6 +4,11 @@ function Drink (name, ice, sugar) {
   this.sugar = sugar
 }
 
+const addDrinkButton = document.querySelector('[data-yao-pos="add-drink"]')
+addDrinkButton.addEventListener('click', function () {
+  console.log('click')
+})
+
 Drink.prototype.price = function () {
   switch (this.name) {
     case '日月潭紅茶':
@@ -21,15 +26,3 @@ Drink.prototype.price = function () {
       alert('沒有這個飲料')    
   }
 }
-
-let blockTea = new Drink ('日月潭紅茶', '微冰', '微糖')
-console.log(blockTea)
-console.log(blockTea.price())
-
-let oolongMilkTea = new Drink ('烏龍奶茶', '去冰', '半糖')
-console.log(oolongMilkTea)
-console.log(oolongMilkTea.price())
-
-let bubbleMilkTea = new Drink ('珍珠奶茶', '半冰', '不加糖')
-console.log(bubbleMilkTea)
-console.log(bubbleMilkTea.price())
