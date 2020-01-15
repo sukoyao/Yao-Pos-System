@@ -30,7 +30,7 @@ orderLists.addEventListener('click', event => {
   if (!isDeleteButton) {
     return  
   }
-  console.log('do something...')
+  console.log(event.target.parentElement.parentElement.parentElement)
 })
 
 // Constructor function for Yao Pos System
