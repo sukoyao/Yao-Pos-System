@@ -2,11 +2,17 @@ const yaoPos = new YaoPos()
 
 const addDrinkButton = document.querySelector('[data-yao-pos="add-drink"]')
 addDrinkButton.addEventListener('click', () => {
-  // 取得飲料項目,冰塊,甜度
+  // get checked value of options
   const drinkName = yaoPos.getCheckedValue('drink')
   const ice = yaoPos.getCheckedValue('ice')
   const sugar = yaoPos.getCheckedValue('sugar')
   console.log(`${drinkName}, ${ice}, ${sugar}`)
+  
+  // show alert if user did not check any drink option
+  if (!drinkName) {
+    alert('請選擇飲料項目')
+    return
+  }
 })
 
 // Constructor function for Yao Pos System
