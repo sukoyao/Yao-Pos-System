@@ -13,6 +13,11 @@ addDrinkButton.addEventListener('click', () => {
     alert('請選擇飲料項目')
     return
   }
+
+  // use Drink Constructor to create drink instance
+  const drink = new Drink(drinkName, ice, sugar)
+  console.log(drink)
+  console.log(drink.price())
 })
 
 // Constructor function for Yao Pos System
