@@ -33,6 +33,11 @@ orderLists.addEventListener('click', event => {
   yaoPos.deleteDrink(event.target.parentElement.parentElement.parentElement)
 })
 
+const checkoutButton = document.querySelector('[data-yao-pos="checkout"]')
+checkoutButton.addEventListener('click', () => {
+  yaoPos.checkout()
+})
+
 // Constructor function for Yao Pos System
 function YaoPos () {}
 YaoPos.prototype.getCheckedValue = inputName => {
@@ -44,7 +49,6 @@ YaoPos.prototype.getCheckedValue = inputName => {
   })
   return selectedOption
 }
-
 
 YaoPos.prototype.addDrink = drink => {
   let orderListCard = `
@@ -72,6 +76,13 @@ YaoPos.prototype.addDrink = drink => {
 
 YaoPos.prototype.deleteDrink = targrt => {
   targrt.remove()
+}
+
+YaoPos.prototype.checkout = () => {
+  document.querySelectorAll('[data-drink-price]').forEach(drink => {
+    console.log(drink)
+    console.log(drink.textContent)
+  })
 }
 
 function Drink (name, ice, sugar) {
