@@ -16,6 +16,7 @@ body {
   max-height: 600px;
 }
 .col-md-4 {
+  height: 600px;
   overflow-y: auto;
 }
 
