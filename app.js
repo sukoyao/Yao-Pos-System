@@ -21,7 +21,6 @@ addDrinkButton.addEventListener('click', () => {
 
   // add order UI
   yaoPos.addDrink(drink)
-  
 })
 
 const orderLists = document.querySelector('[data-order-lists]')
@@ -35,7 +34,7 @@ orderLists.addEventListener('click', event => {
 
 const checkoutButton = document.querySelector('[data-yao-pos="checkout"]')
 checkoutButton.addEventListener('click', () => {
-  yaoPos.checkout()
+  alert(`飲料消費總金額是: $ ${yaoPos.checkout()}`)
 })
 
 // Constructor function for Yao Pos System
@@ -79,10 +78,11 @@ YaoPos.prototype.deleteDrink = targrt => {
 }
 
 YaoPos.prototype.checkout = () => {
+  let totalAmount = 0
   document.querySelectorAll('[data-drink-price]').forEach(drink => {
-    console.log(drink)
-    console.log(drink.textContent)
+    totalAmount += Number(drink.textContent)
   })
+  return totalAmount
 }
 
 function Drink (name, ice, sugar) {
